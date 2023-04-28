@@ -55,7 +55,8 @@ public class ProdutoService {
 
      /**
      * metodo para deletar o produto por id.
-     * @param id do produto para ser deletado.
+     * @param id do produto para ser atualizado.
+     * @param produto atualizado.
     * @return Retorna o produto atualizado.
      */
     public Produto atualizar(Integer id,Produto produto){
