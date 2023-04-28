@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.adriel.projeto04.adriel_projeto04.model.Produto;
+import com.adriel.projeto04.adriel_projeto04.model.exception.ResourceNotFoundException;
 
 @Repository
 public class ProdutoRepository {
@@ -72,7 +73,7 @@ public class ProdutoRepository {
         Optional<Produto>  produtoEncontrado=obterPorId(produto.getId());
 
         if(produtoEncontrado.isEmpty()){
-            throw new InputMismatchException("Produto não encontrado");
+            throw new ResourceNotFoundException("Produto não pode ser atualizado pois não existe.");
         }
 
         deletar(produto.getId());
