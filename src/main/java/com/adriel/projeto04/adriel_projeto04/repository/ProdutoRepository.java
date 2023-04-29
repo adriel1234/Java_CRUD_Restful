@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.adriel.projeto04.adriel_projeto04.model.Produto;
-import com.adriel.projeto04.adriel_projeto04.model.exception.ResourceNotFoundException;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto,Integer>{
