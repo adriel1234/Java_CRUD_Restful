@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.adriel.projeto04.adriel_projeto04.model.Produto;
 import com.adriel.projeto04.adriel_projeto04.repository.ProdutoRepository;
 
+
 @Service
 public class ProdutoService {
 
@@ -20,7 +21,7 @@ public class ProdutoService {
      * @return Lista de produtos;
      */
     public List<Produto> obterTodos(){
-        return produtoRepository.obterTodos();
+        return produtoRepository.findAll();
     }
 
     /**
@@ -29,7 +30,7 @@ public class ProdutoService {
      * @return Retorna um produto caso tenha encontrado.
      */
     public Optional<Produto> obterPorId(Integer id){
-        return produtoRepository.obterPorId(id);
+        return produtoRepository.findById(id);
     }
 
     /**
@@ -40,7 +41,7 @@ public class ProdutoService {
     public Produto adicionar(Produto produto){
         
         // Poderia ter alguma regra de negocio para validar o produto.
-        return produtoRepository.adicionar(produto);
+        return produtoRepository.save(produto);
     }
 
     /**
@@ -49,7 +50,7 @@ public class ProdutoService {
      */
     public void deletar(Integer id){
 
-        produtoRepository.deletar(id);
+        produtoRepository.deleteById(id);
     }
 
 
@@ -62,7 +63,7 @@ public class ProdutoService {
     public Produto atualizar(Integer id,Produto produto){
         produto.setId(id);
 
-        return produtoRepository.atualizar(produto);
+        return produtoRepository.save(produto);
     }
     
 }
